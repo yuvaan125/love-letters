@@ -1,0 +1,170 @@
+/* --- Global & Typography --- */
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #f7f3e8; /* Off-white/Cream background */
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #8c4c3e; /* Deep Rosewood color */
+}
+
+/* --- Header & Footer --- */
+.archived-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.archived-header p {
+    font-style: italic;
+    color: #6a6a6a;
+}
+
+.archive-footer {
+    margin-top: 50px;
+    font-style: italic;
+    color: #8c4c3e;
+}
+
+/* --- Letters Grid --- */
+#letters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.letter-envelope {
+    width: 220px;
+    height: 160px;
+    background-color: #ffffff;
+    border: 1px solid #c9a79c;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+    cursor: pointer;
+}
+
+/* Styles for UNLOCKED letters */
+.letter-envelope:not(.locked) {
+    background-color: #fff9f0; /* Soft parchment for unlocked */
+}
+
+.letter-envelope:not(.locked):hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.envelope-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+    color: #a85858; /* Muted red icon */
+}
+
+.envelope-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    margin: 0;
+    color: #8c4c3e;
+}
+
+.envelope-status {
+    font-size: 0.9em;
+    margin-top: 5px;
+    color: #777;
+}
+
+/* --- Styles for LOCKED letters --- */
+.letter-envelope.locked {
+    background-color: #e9e4d9; /* Grayed-out/sealed look */
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    border: 1px dashed #c9c9c9;
+}
+
+.letter-envelope.locked .envelope-icon {
+    color: #a3a3a3; /* Gray lock icon */
+}
+
+.letter-envelope.locked .envelope-title {
+    color: #777;
+}
+
+
+/* --- Modal (The Letter Content) --- */
+.hidden {
+    display: none !important;
+}
+
+#modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fffaf0; /* Classic parchment color */
+    padding: 40px;
+    border: 8px double #a85858; /* Elegant double border */
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.close-button {
+    color: #8c4c3e;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #5d3128;
+}
+
+.letter-title {
+    border-bottom: 2px solid #8c4c3e;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.letter-body {
+    font-size: 1.15em;
+    line-height: 1.8;
+    white-space: pre-wrap; /* Preserves your line breaks */
+    font-style: italic;
+}
